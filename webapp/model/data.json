@@ -1,0 +1,45 @@
+{
+    "orders": {
+      "nodes": {
+        "ordernumber": "123245",
+        "status": "In Approval",
+        "position": "",
+        "material": "",
+        "validfrom": null,
+        "validto": null,
+        "netvalue": "500",
+        "currency": "USD",
+        "quantity": "",
+        "deliveryqty": "",
+        "type": "order",
+        "nodes": [
+          {
+            "ordernumber": "123245",
+            "status": "",
+            "position": "10",
+            "material": "ABC",
+            "validfrom": null,
+            "validto": null,
+            "netvalue": "320",
+            "currency": "USD",
+            "quantity": "50",
+            "deliveryqty": "60",
+            "type": "item"
+          },
+          {
+            "ordernumber": "123245",
+            "status": "",
+            "position": "20",
+            "material": "DEF",
+            "validfrom": null,
+            "validto": null,
+            "netvalue": "180",
+            "currency": "USD",
+            "quantity": "40",
+            "deliveryqty": "50",
+            "type": "item"
+          }
+        ]
+      }
+    }
+  }

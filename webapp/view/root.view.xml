@@ -1,0 +1,114 @@
+<mvc:View
+    controllerName="com.poc.treetablepoc.controller.root"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <table:TreeTable
+                id="idTreeTable"
+                selectionMode="MultiToggle"
+                rows="{path:'treetable>/orders', parameters: {arrayNames:['nodes']}}"
+            >
+                <table:extension>
+                    <OverflowToolbar>
+                        <Title text="Order Details" />
+                        <ToolbarSpacer />
+                        <Button
+                            text="Approve"
+                            type="Accept"
+                            press="handleApprove"
+                        />
+                        <Button
+                            text="Reject"
+                            type="Reject"
+                            press="handleReject"
+                        />
+                    </OverflowToolbar>
+                </table:extension>
+
+                <table:columns>
+                    <table:Column>
+                        <Label text="Sales Order" />
+                        <table:template>
+                            <Text text="{treetable>ordernumber}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Status" />
+                        <table:template>
+                            <Text text="{treetable>status}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Position" />
+                        <table:template>
+                            <Text text="{treetable>position}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Material" />
+                        <table:template>
+                            <Text text="{treetable>material}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Valid From" />
+                        <table:template>
+                            <DatePicker
+                                value="{
+                                    'path': 'treetable>validfrom',
+                                    'formatOptions': {
+                                        'pattern': 'yyyy-MM-dd'
+                                    }
+					            }"
+                                visible="{= ${treetable>type} === 'order' }"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Valid To" />
+                        <table:template>
+                            <DatePicker
+                                value="{treetable>validto}"
+                                visible="{= ${treetable>type} === 'order' }"
+                            />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Net Value" />
+                        <table:template>
+                            <Text text="{treetable>netvalue}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Document Currency" />
+                        <table:template>
+                            <Text text="{treetable>currency}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Order Quantity" />
+                        <table:template>
+                            <Text text="{treetable>quantity}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Req Delivery Quantity" />
+                        <table:template>
+                            <Input
+                                value="{treetable>deliveryqty}"
+                                visible="{= ${treetable>type} === 'item' }"
+                            />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:TreeTable>
+        </content>
+    </Page>
+</mvc:View>
